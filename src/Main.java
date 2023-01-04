@@ -1,3 +1,4 @@
+//https://github.com/mameevdi/CW1/pull/1
 public class Main {
     private static final Employee[] employees = {
             new Employee("Мамеев Дмитрий Михайлович", 1, 125600),

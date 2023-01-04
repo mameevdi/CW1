@@ -41,10 +41,12 @@ public class Employee {
         }
     }
 
+    @Override
     public int hashCode() {
         return Objects.hash(new Object[]{this.id, this.fullName, this.department, this.salary});
     }
 
+    @Override
     public String toString() {
         return "Id " + this.id + ". ФИО сотрудника: " + this.fullName + ". Отдел: " + this.department + ". Заработная плата: " + this.salary;
     }
