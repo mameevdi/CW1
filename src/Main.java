@@ -1,6 +1,6 @@
 //https://github.com/mameevdi/CW1/pull/1
 public class Main {
-    private static final Employee[] employees = {
+    private static final Employee[] EMPLOYEES = {
             new Employee("Мамеев Дмитрий Михайлович", 1, 125600),
             new Employee("Трофимова Анастасия Алексеевна", 2, 98000),
             new Employee("Шкуратова Ирина Васильевна", 3, 106100),
@@ -14,23 +14,23 @@ public class Main {
 
     };
     public static void printEmployees() {
-        for (Employee employee : employees) {
+        for (Employee employee : EMPLOYEES) {
             System.out.println(employee);
         }
     }
 
     public static double sumSalary() {
         double sum = 0;
-        for (Employee employee : employees) {
+        for (Employee employee : EMPLOYEES) {
             sum = sum + employee.getSalary();
         }
         return sum;
     }
 
-    public static Employee EmployeeMinSalary() {
-        Employee result = employees[0];
-        double minSalary = employees[0].getSalary();
-        for (Employee employee : employees) {
+    public static Employee employeeMinSalary() {
+        Employee result = EMPLOYEES[0];
+        double minSalary = EMPLOYEES[0].getSalary();
+        for (Employee employee : EMPLOYEES) {
             if (employee.getSalary() < minSalary) {
                 minSalary = employee.getSalary();
                 result = employee;
@@ -39,10 +39,10 @@ public class Main {
         return result;
     }
 
-    public static Employee EmployeeMaxSalary() {
-        Employee result = employees[0];
-        double maxSalary = employees[0].getSalary();
-        for (Employee employee : employees) {
+    public static Employee employeeMaxSalary() {
+        Employee result = EMPLOYEES[0];
+        double maxSalary = EMPLOYEES[0].getSalary();
+        for (Employee employee : EMPLOYEES) {
             if (employee.getSalary() > maxSalary) {
                 maxSalary = employee.getSalary();
                 result = employee;
@@ -53,27 +53,8 @@ public class Main {
 
     public static double averageSalary() {
         double average = 0;
-        sumSalary();
-        average = sumSalary() / employees.length;
+        average = sumSalary() / EMPLOYEES.length;
         return average;
-    }
-
-    public static void receiveFullName() {
-        for (Employee employee : employees) {
-            System.out.println(employee.getFullName());
-        }
-    }
-
-    public static double averageSalary(int department) {
-        int countEmployee = 0;
-        double sum = 0;
-        for (Employee employee : employees) {
-            if (employee.getDepartment() == department) {
-                sum += employee.getSalary();
-                countEmployee++;
-            }
-        }
-        return sum / countEmployee;
     }
 
 
@@ -84,12 +65,16 @@ public class Main {
     public static void main(String[] args) {
         printEmployees(); //Получить список всех сотрудников
         printSeparator();
+
         System.out.println("Сумма затрат на зарплаты в месяц: " +sumSalary()); //Посчитать сумму затрат на зарплаты.
         printSeparator();
-        System.out.println("Сотрудник с минимальной заработной платой " + EmployeeMinSalary()); //Найти сотрудника с минимальной заплатой.
+
+        System.out.println("Сотрудник с минимальной заработной платой " + employeeMinSalary()); //Найти сотрудника с минимальной заплатой.
         printSeparator();
-        System.out.println("Сотрудник с максимальной заработной платой " + EmployeeMaxSalary()); //Найти сотрудника с максимальной зарплатой.
+
+        System.out.println("Сотрудник с максимальной заработной платой " + employeeMaxSalary()); //Найти сотрудника с максимальной зарплатой.
         printSeparator();
+
         System.out.println("Среднее значение зарплат "+ averageSalary()); //Подсчитать среднее значение зарплат.
     }
 }
